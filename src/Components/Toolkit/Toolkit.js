@@ -22,14 +22,14 @@ export default class Toolkit extends React.Component {
         </div>
         <Menu.Item as='a' header>
           Prozesse
-                </Menu.Item>
+        </Menu.Item>
         <div className='Toolkit__items Toolkit__items--customers'>
           <ToolkitItem />
           <Button icon labelPosition='right'>Erstellen <Icon name='add' /></Button>
         </div>
         <Menu.Item as='a' header>
           Channels
-                </Menu.Item>
+        </Menu.Item>
         <div className='Toolkit__items Toolkit__items--customers'>
           <ToolkitItem />
           <ToolkitItem />

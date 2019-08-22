@@ -35,7 +35,6 @@ export default class ViewerScene extends React.Component {
   }
 
   render() {
-
     return (
       <Scene vr-mode-ui='enabled: false'>
         <a-assets>
@@ -46,30 +45,19 @@ export default class ViewerScene extends React.Component {
           type='directional'
           color='#fff'
           position={{ x: -4.052, y: 10.436, z: 5.583 }}></Entity>
-
         <Entity
           text={{ value: 'Data Layer', align: 'center', color: '#000' }}
           position={{ x: 0, y: 0, z: 0 }}
           width='4' />
-
         <Entity id='explodedViewRoot'>
-
           <BaseLayer id='customersLayer' offset={this.calculateOffset(3)} opacity='0.5' color='lightblue' />
-
           <BaseLayer id='experienceLayer' offset={this.calculateOffset(2)} color='turquoise' />
-
           <BaseLayer id='organisationLayer' offset={this.calculateOffset(1)} color='lightgreen' />
-
           <BaseLayer id='performanceLayer' offset={this.calculateOffset(0)} color='yellow' />
-
           <BaseLayer id='assetLayer' offset={this.calculateOffset(-1)} uniformScale='1.1' color='orange' />
-
           <BaseLayer id='dataLayer' offset={this.calculateOffset(-2)} color='red' />
-
         </Entity>
-
         <IsometricCamera />
-
       </Scene>
     );
   }
