@@ -8,7 +8,7 @@ export default class ViewerScene extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
-            color: (props.color) ? props.color : 'grey',
+            color: (props.color) ? props.color : 'lightgrey',
             offset: (props.offset) ? props.offset : 0,
             uniformScale: (props.uniformScale) ? props.uniformScale : 1,
         };
