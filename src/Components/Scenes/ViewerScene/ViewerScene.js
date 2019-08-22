@@ -1,10 +1,16 @@
+// Aframe
 import 'aframe';
 import 'aframe-animation-component';
-import './../../../Entities/Line.js';
 
+// Aframe Components
+import './../../../Entities/Line.js';
+import './../../../Entities/Sprite.js';
+
+// Framework
 import { Entity, Scene } from 'aframe-react';
 import React from 'react';
 
+// React Components
 import BaseLayer from './../../../Components/Layers/BaseLayer/BaseLayer';
 import IsometricCamera from '../../Cameras/IsometricCamera/IsometricCamera';
 
@@ -40,16 +46,17 @@ export default class ViewerScene extends React.Component {
       <Scene vr-mode-ui='enabled: false'>
         <a-assets>
           {/* Asset have to be defined in the root aframe scene */}
+          <img id="hotspotimage" src="hotspot.png"/>
         </a-assets>
 
-        <Entity line='path: 10 10 10, 0 10 0, -10 -10 -10'/>
+        <Entity line='path: 10 10 10, 0 0 0, -10 -10 -10'/>
 
         <Entity
           primitive='a-light'
           type='directional'
           color='#fff'
           position={{ x: -4.052, y: 10.436, z: 5.583 }}></Entity>
-          
+
         <Entity id='explodedViewRoot'>
           <BaseLayer id='customersLayer' offset={this.calculateOffset(3)} opacity='0.5' color='lightblue' />
           <BaseLayer id='experienceLayer' offset={this.calculateOffset(2)} color='turquoise' />

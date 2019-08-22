@@ -45,8 +45,8 @@ export default class ViewerScene extends React.Component {
                     geometry={{ primitive: 'box', height: .2, width: 10, depth: 10 }}
                     material={{ color: this.state.color, opacity: this.state.opacity }}
                     events={{ click: this.focus.bind(this) }}
-                >
-                </Entity>
+                />
+                <Entity position='4.111 0.262 3.729' sprite={{src:'hotspot.png'}}/>
             </Entity>
         );
     }
