@@ -20,7 +20,7 @@ export default class ViewerScene extends React.Component {
 
   render() {
     return (
-      <Scene>
+      <Scene vr-mode-ui="enabled: false">
         <a-assets>
           <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg" />
           <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg" />
