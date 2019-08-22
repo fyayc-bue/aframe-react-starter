@@ -29,7 +29,7 @@ class App extends React.Component {
         <SidebarPusher>
 
           <div className='App__controls'>
-            <Button basic icon='stop' className={this.computeButtonClass(visible)} onClick={this.handleShowClick} />
+            <Button basic color='red' icon='stop' className={this.computeButtonClass(visible)} onClick={this.handleShowClick} />
             <Button basic icon='play' className={this.computeButtonClass(!visible)} onClick={this.handleHideClick} />
           </div>
 
