@@ -42,13 +42,13 @@ class App extends React.Component {
             visible={visible}>
             <Menu.Item as='a' header>Toolkit</Menu.Item>
             <Menu.Item as='a'>
-              Customer
+              Customer <Icon name='add'/>
             </Menu.Item>
             <Menu.Item as='a'>
-              Process
+              Prozess <Icon name='add'/>
             </Menu.Item>
             <Menu.Item as='a'>
-              Channel
+              Channel <Icon name='add'/>
             </Menu.Item>
 
           </Sidebar>

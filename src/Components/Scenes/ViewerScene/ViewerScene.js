@@ -1,9 +1,10 @@
 import 'aframe';
 import 'aframe-animation-component';
-import 'aframe-particle-system-component';
 
 import { Entity, Scene } from 'aframe-react';
 import React from 'react';
+
+import BaseLayer from './../../../Components/Layers/BaseLayer/BaseLayer';
 
 export default class ViewerScene extends React.Component {
   constructor(props) {
@@ -41,47 +42,17 @@ export default class ViewerScene extends React.Component {
           width='4' />
 
         <Entity id="explodedViewRoot">
-          <Entity id="dataLayer"
-            position={{ x: 0, y: -10, z: 0 }}>
-            <Entity className='floor'
-              geometry={{ primitive: 'box', height: .2, width: 10, depth: 10 }}
-              material={{ color: this.state.color, opacity: 0.8 }}
-              events={{ click: this.changeColor.bind(this) }}
-            >
-            </Entity>
-          </Entity>
+          
+          <BaseLayer id="dataLayer" offset='-10'/>
 
-          <Entity id="assetLayer"
-            geometry={{ primitive: 'box', height: .2, width: 10, depth: 10 }}
-            material={{ color: this.state.color, opacity: 0.8 }}
-            position={{ x: 0, y: -5, z: 0 }}
-            events={{ click: this.changeColor.bind(this) }}
-          >
-          </Entity>
+          <BaseLayer id="assetLayer" offset='-5'/>
 
-          <Entity id="performanceLayer"
-            geometry={{ primitive: 'box', height: .2, width: 10, depth: 10 }}
-            material={{ color: this.state.color, opacity: 0.8 }}
-            position={{ x: 0, y: 0, z: 0 }}
-            events={{ click: this.changeColor.bind(this) }}
-          >
-          </Entity>
+          <BaseLayer id="performanceLayer" offset='0'/>
 
-          <Entity id="organisationLayer"
-            geometry={{ primitive: 'box', height: .2, width: 10, depth: 10 }}
-            material={{ color: this.state.color, opacity: 0.8 }}
-            position={{ x: 0, y: 5, z: 0 }}
-            events={{ click: this.changeColor.bind(this) }}
-          >
-          </Entity>
+          <BaseLayer id="organisationLayer" offset='5'/>
+        
+          <BaseLayer id="customersLayer" offset='10'/>
 
-          <Entity id="customersLayer"
-            geometry={{ primitive: 'box', height: .2, width: 10, depth: 10 }}
-            material={{ color: this.state.color, opacity: 0.8 }}
-            position={{ x: 0, y: 10, z: 0 }}
-            events={{ click: this.changeColor.bind(this) }}
-          >
-          </Entity>
         </Entity>
 
 
