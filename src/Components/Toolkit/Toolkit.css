@@ -1,0 +1,13 @@
+.Toolkit {
+    /* .. */
+}
+.Toolkit .container p {
+    padding: 1rem;
+    text-align: center;
+}
+.Toolkit__items {
+    padding: 1rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}

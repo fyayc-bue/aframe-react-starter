@@ -2,25 +2,21 @@ html {
     margin: 0;
     padding: 0;
 }
-.app {
+.App {
     width: 100vw;
     height: 100vh;
 }
 
-.app__sidebar {
+.App__sidebar {
     background: white;
 }
-.app__controls {
+.App__controls {
     position: absolute;
     z-index: 1000;
     bottom: .5rem;
     left: .5rem;
 }
-.ui.button.app__controls__button {}
-.ui.button.app__controls__button--hidden {
+.ui.button.App__controls__button {}
+.ui.button.App__controls__button--hidden {
     display: none;
-}
-.container p {
-    padding: 1rem;
-    text-align: center;
 }
