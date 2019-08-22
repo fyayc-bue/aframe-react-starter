@@ -1,5 +1,6 @@
 import 'aframe';
 import 'aframe-animation-component';
+import './../../../Entities/Line.js';
 
 import { Entity, Scene } from 'aframe-react';
 import React from 'react';
@@ -41,16 +42,14 @@ export default class ViewerScene extends React.Component {
         <a-assets>
           {/* Asset have to be defined in the root aframe scene */}
         </a-assets>
+
+        <Entity line='path: 10 10 10, 0 10 0, -10 -10 -10'/>
+
         <Entity
           primitive='a-light'
           type='directional'
           color='#fff'
           position={{ x: -4.052, y: 10.436, z: 5.583 }}></Entity>
-
-        <Entity
-          text={{ value: 'Data Layer', align: 'center', color: '#000' }}
-          position={{ x: 0, y: 0, z: 0 }}
-          width='4' />
 
         <Entity id='explodedViewRoot'>
 
