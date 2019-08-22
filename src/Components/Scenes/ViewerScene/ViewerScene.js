@@ -13,6 +13,11 @@ export default class ViewerScene extends React.Component {
     this.state = { 
       color: 'red',
       collapsed: false,
+      distance: {
+        min: .2,
+        max: 3,
+      },
+      centerY: 0,
     };
   }
 
@@ -22,12 +27,19 @@ export default class ViewerScene extends React.Component {
     });
   }
 
+  calculateOffset(level) {
+    const distance = (this.state.collapsed) ? this.state.distance.min : this.state.distance.max
+    const offset = level * distance;
+    console.log(offset);
+    return offset;
+  }
+
   render() {
+
     return (
-      <Scene vr-mode-ui="enabled: false">
+      <Scene vr-mode-ui='enabled: false'>
         <a-assets>
-          <img id="groundTexture" alt='asset' src="https://cdn.aframe.io/a-painter/images/floor.jpg" />
-          <img id="skyTexture" alt='asset' src="https://cdn.aframe.io/a-painter/images/sky.jpg" />
+          {/* Asset have to be defined in the root aframe scene */}
         </a-assets>
         <Entity
           primitive='a-light'
@@ -40,17 +52,19 @@ export default class ViewerScene extends React.Component {
           position={{ x: 0, y: 0, z: 0 }}
           width='4' />
 
-        <Entity id="explodedViewRoot">
+        <Entity id='explodedViewRoot'>
 
-          <BaseLayer id="dataLayer" offset='-10' />
+          <BaseLayer id='customersLayer' offset={this.calculateOffset(3)} opacity='0.5' color='lightblue' />
 
-          <BaseLayer id="assetLayer" offset='-5'/>
+          <BaseLayer id='experienceLayer' offset={this.calculateOffset(2)} color='turquoise'/>
 
-          <BaseLayer id="performanceLayer" offset='0'/>
+          <BaseLayer id='organisationLayer' offset={this.calculateOffset(1)} color='lightgreen'/>
 
-          <BaseLayer id="organisationLayer" offset='5'/>
+          <BaseLayer id='performanceLayer' offset={this.calculateOffset(0)} color='yellow'/>
 
-          <BaseLayer id="customersLayer" offset='10'/>
+          <BaseLayer id='assetLayer' offset={this.calculateOffset(-1)} uniformScale='1.1' color='orange'/>
+
+          <BaseLayer id='dataLayer' offset={this.calculateOffset(-2)} color='red'/>
 
         </Entity>
 
