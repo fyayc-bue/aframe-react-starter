@@ -10,13 +10,15 @@ import IsometricCamera from '../../Cameras/IsometricCamera/IsometricCamera';
 export default class ViewerScene extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { color: 'red' };
+    this.state = { 
+      color: 'red',
+      collapsed: false,
+    };
   }
 
-  changeColor() {
-    const colors = ['red', 'orange', 'yellow', 'green', 'blue'];
+  collapse() {
     this.setState({
-      color: colors[Math.floor(Math.random() * colors.length)]
+      collapsed: true
     });
   }
 
@@ -24,10 +26,9 @@ export default class ViewerScene extends React.Component {
     return (
       <Scene vr-mode-ui="enabled: false">
         <a-assets>
-          <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg" />
-          <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg" />
+          <img id="groundTexture" alt='asset' src="https://cdn.aframe.io/a-painter/images/floor.jpg" />
+          <img id="skyTexture" alt='asset' src="https://cdn.aframe.io/a-painter/images/sky.jpg" />
         </a-assets>
-
         <Entity
           primitive='a-light'
           type='directional'
@@ -43,13 +44,13 @@ export default class ViewerScene extends React.Component {
 
           <BaseLayer id="dataLayer" offset='-10' />
 
-          <BaseLayer id="assetLayer" offset='-5' />
+          <BaseLayer id="assetLayer" offset='-5'/>
 
-          <BaseLayer id="performanceLayer" offset='0' />
+          <BaseLayer id="performanceLayer" offset='0'/>
 
-          <BaseLayer id="organisationLayer" offset='5' />
+          <BaseLayer id="organisationLayer" offset='5'/>
 
-          <BaseLayer id="customersLayer" offset='10' />
+          <BaseLayer id="customersLayer" offset='10'/>
 
         </Entity>
 

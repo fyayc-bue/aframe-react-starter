@@ -25,7 +25,7 @@ class App extends React.Component {
       <main className='app'>
 
         <SidebarPusher>
-          <div class='app__controls'>
+          <div className='app__controls'>
             <Button basic icon='edit outline' className={this.computeButtonClass(visible)} onClick={this.handleShowClick} />
             <Button basic icon='eye' className={this.computeButtonClass(!visible)} onClick={this.handleHideClick} />
           </div>

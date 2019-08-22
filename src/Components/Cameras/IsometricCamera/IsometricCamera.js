@@ -5,9 +5,6 @@ import { Entity } from 'aframe-react';
 import React from 'react';
 
 export default class IsometricCamera extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (
