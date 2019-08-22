@@ -8,36 +8,36 @@ import ToolkitItem from './ToolkitItem';
 
 export default class Toolkit extends React.Component {
 
-    render() {
-        return (
-            <div className='Toolkit'>
-                <Menu.Item as='a' header>Toolkit</Menu.Item>
-                <Container fluid text><p>Ihre Unternehmens Bausteine</p></Container>
-                <Menu.Item as='a' header>
-                    Customers
+  render() {
+    return (
+      <div className='Toolkit'>
+        <Menu.Item as='a' header>Toolkit</Menu.Item>
+        <Container fluid text><p>Ihre Unternehmens Bausteine</p></Container>
+        <Menu.Item as='a' header>
+          Customers
                 </Menu.Item>
-                <div className='Toolkit__items Toolkit__items--customers'>
-                    <ToolkitItem />
-                    <Button icon labelPosition='right'>Erstellen <Icon name='add' /></Button>
-                </div>
-                <Menu.Item as='a' header>
-                    Prozesse
+        <div className='Toolkit__items Toolkit__items--customers'>
+          <ToolkitItem />
+          <Button icon labelPosition='right'>Erstellen <Icon name='add' /></Button>
+        </div>
+        <Menu.Item as='a' header>
+          Prozesse
                 </Menu.Item>
-                <div className='Toolkit__items Toolkit__items--customers'>
-                    <ToolkitItem />
-                    <Button icon labelPosition='right'>Erstellen <Icon name='add' /></Button>
-                </div>
-                <Menu.Item as='a' header>
-                    Channels
+        <div className='Toolkit__items Toolkit__items--customers'>
+          <ToolkitItem />
+          <Button icon labelPosition='right'>Erstellen <Icon name='add' /></Button>
+        </div>
+        <Menu.Item as='a' header>
+          Channels
                 </Menu.Item>
-                <div className='Toolkit__items Toolkit__items--customers'>
-                    <ToolkitItem />
-                    <ToolkitItem />
-                    <ToolkitItem />
+        <div className='Toolkit__items Toolkit__items--customers'>
+          <ToolkitItem />
+          <ToolkitItem />
+          <ToolkitItem />
 
-                    <Button icon labelPosition='right'>Erstellen <Icon name='add' /></Button>
-                </div>
-            </div>
-        );
-    }
+          <Button icon labelPosition='right'>Erstellen <Icon name='add' /></Button>
+        </div>
+      </div>
+    );
+  }
 }

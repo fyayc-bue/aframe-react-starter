@@ -10,7 +10,7 @@ import IsometricCamera from '../../Cameras/IsometricCamera/IsometricCamera';
 export default class ViewerScene extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       color: 'red',
       collapsed: false,
       distance: {
@@ -56,15 +56,15 @@ export default class ViewerScene extends React.Component {
 
           <BaseLayer id='customersLayer' offset={this.calculateOffset(3)} opacity='0.5' color='lightblue' />
 
-          <BaseLayer id='experienceLayer' offset={this.calculateOffset(2)} color='turquoise'/>
+          <BaseLayer id='experienceLayer' offset={this.calculateOffset(2)} color='turquoise' />
 
-          <BaseLayer id='organisationLayer' offset={this.calculateOffset(1)} color='lightgreen'/>
+          <BaseLayer id='organisationLayer' offset={this.calculateOffset(1)} color='lightgreen' />
 
-          <BaseLayer id='performanceLayer' offset={this.calculateOffset(0)} color='yellow'/>
+          <BaseLayer id='performanceLayer' offset={this.calculateOffset(0)} color='yellow' />
 
-          <BaseLayer id='assetLayer' offset={this.calculateOffset(-1)} uniformScale='1.1' color='orange'/>
+          <BaseLayer id='assetLayer' offset={this.calculateOffset(-1)} uniformScale='1.1' color='orange' />
 
-          <BaseLayer id='dataLayer' offset={this.calculateOffset(-2)} color='red'/>
+          <BaseLayer id='dataLayer' offset={this.calculateOffset(-2)} color='red' />
 
         </Entity>
 
