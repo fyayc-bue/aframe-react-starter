@@ -7,10 +7,23 @@ html {
 .app {
     width: 100vw;
     height: 100vh;
-    display: flex;
 }
 
-.app__toolkit,
+.sidebar {
+    width: 20rem;
+    height: 100vh;
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+}
+
 .app__inspector {
-    width: 30rem;
+    right: 0;
+    left: auto;
+}
+
+.app__toolkit {
+
 }
