@@ -8,65 +8,91 @@ import './../../../Entities/Sprite.js';
 
 // Framework
 import { Entity, Scene } from 'aframe-react';
-import React from 'react';
+import React, {useState, useContext} from 'react';
 
 // React Components
 import BaseLayer from './../../../Components/Layers/BaseLayer/BaseLayer';
 import IsometricCamera from '../../Cameras/IsometricCamera/IsometricCamera';
 
-export default class ViewerScene extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      color: 'red',
-      collapsed: false,
-      distance: {
-        min: .2,
-        max: 3,
-      },
-      centerY: 0,
-    };
-  }
+import { InspectorDispatch } from "../../InspectorDispatch";
 
-  collapse() {
-    this.setState({
-      collapsed: true
-    });
-  }
+const ViewerScene = (props) => {
 
-  calculateOffset(level) {
-    const distance = (this.state.collapsed) ? this.state.distance.min : this.state.distance.max
-    const offset = level * distance;
+  const [color, setColor] = useState('red');
+  const [collapsed, setCollapsed] = useState(false);
+  const [distance, setDistance] = useState({min: .2, max: 3});
+  const [centerY, setCenterY] = useState(0);
+
+  const collapse = () =>
+    setCollapsed(true);
+
+
+  const calculateOffset = (level) => {
+    const newDistance = (collapsed) ? distance.min : distance.max;
+    const offset = level * newDistance;
     console.log(offset);
     return offset;
   }
 
-  render() {
+
+    const { state, dispatch } = useContext(InspectorDispatch);
+
     return (
-      <Scene vr-mode-ui='enabled: false'>
+      <Scene vr-mode-ui="enabled: false">
         <a-assets>
           {/* Asset have to be defined in the root aframe scene */}
-          <img id="hotspotimage" src="hotspot.png"/>
+          <img id="hotspotimage" src="hotspot.png" />
         </a-assets>
 
-        <Entity line='path: 10 10 10, 0 0 0, -10 -10 -10'/>
+        <Entity line="path: 10 10 10, 0 0 0, -10 -10 -10" />
 
         <Entity
-          primitive='a-light'
-          type='directional'
-          color='#fff'
-          position={{ x: -4.052, y: 10.436, z: 5.583 }}></Entity>
+          primitive="a-light"
+          type="directional"
+          color="#fff"
+          position={{ x: -4.052, y: 10.436, z: 5.583 }}
+        />
 
-        <Entity id='explodedViewRoot'>
-          <BaseLayer id='customersLayer' offset={this.calculateOffset(3)} opacity='0.5' color='lightblue' />
-          <BaseLayer id='experienceLayer' offset={this.calculateOffset(2)} color='turquoise' />
-          <BaseLayer id='organisationLayer' offset={this.calculateOffset(1)} color='lightgreen' />
-          <BaseLayer id='performanceLayer' offset={this.calculateOffset(0)} color='yellow' />
-          <BaseLayer id='assetLayer' offset={this.calculateOffset(-1)} uniformScale='1.1' color='orange' />
-          <BaseLayer id='dataLayer' offset={this.calculateOffset(-2)} color='red' />
+        <Entity id="explodedViewRoot">
+          {state.customersLayer && (
+            <BaseLayer
+              id="customersLayer"
+              offset={calculateOffset(3)}
+              opacity="0.5"
+              uniformScale={state.enlarge}
+              color="lightblue"
+            />
+          )}
+          <BaseLayer
+            id="experienceLayer"
+            offset={calculateOffset(2)}
+            color="turquoise"
+          />
+          <BaseLayer
+            id="organisationLayer"
+            offset={calculateOffset(1)}
+            color="lightgreen"
+          />
+          <BaseLayer
+            id="performanceLayer"
+            offset={calculateOffset(0)}
+            color="yellow"
+          />
+          <BaseLayer
+            id="assetLayer"
+            offset={calculateOffset(-1)}
+            uniformScale="1.1"
+            color="orange"
+          />
+          <BaseLayer
+            id="dataLayer"
+            offset={calculateOffset(-2)}
+            color="red"
+          />
         </Entity>
         <IsometricCamera />
       </Scene>
     );
-  }
 }
+
+export default ViewerScene;
