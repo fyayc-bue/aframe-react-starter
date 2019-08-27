@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { InspectorDispatch } from "../../InspectorDispatch";
+import { InspectorDispatch } from "../../Dispatch/InspectorDispatch";
 
 import "aframe";
 import "aframe-animation-component";
@@ -13,7 +13,7 @@ const ViewerScene = props => {
   const offset = props.offset ? props.offset : 0;
   const uniformScale = props.uniformScale ? props.uniformScale : 1;
   const opacity = props.opacity ? props.opacity : 1;
-  const level = 1;
+  const level = 0;
 
   // constructor(props) {
   //     super(props);

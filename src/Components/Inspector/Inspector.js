@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import "./Inspector.css";
 import { Menu, Icon, Container } from "semantic-ui-react";
-import { InspectorDispatch } from "../InspectorDispatch";
+import { InspectorDispatch } from "../Dispatch/InspectorDispatch";
 
 const Inspector = props => {
   const { state, dispatch } = useContext(InspectorDispatch);

@@ -5,7 +5,7 @@ import "./Toolkit.css";
 import { Menu, Icon, Container, Button } from "semantic-ui-react";
 
 import ToolkitItem from "./ToolkitItem";
-import { InspectorDispatch } from "../InspectorDispatch";
+import { InspectorDispatch } from "../Dispatch/InspectorDispatch";
 
 const Toolkit = () => {
   const { state, dispatch } = useContext(InspectorDispatch);

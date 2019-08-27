@@ -20,7 +20,7 @@ import Toolkit from "./Components/Toolkit/Toolkit";
 import {
   InspectorDispatchProvider,
   InspectorDispatch
-} from "./Components/InspectorDispatch";
+} from "./Components/Dispatch/InspectorDispatch";
 
 const App = () => {
   const [visible, setVisible] = useState(true);

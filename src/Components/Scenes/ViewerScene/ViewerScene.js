@@ -14,7 +14,7 @@ import React, {useState, useContext} from 'react';
 import BaseLayer from './../../../Components/Layers/BaseLayer/BaseLayer';
 import IsometricCamera from '../../Cameras/IsometricCamera/IsometricCamera';
 
-import { InspectorDispatch } from "../../InspectorDispatch";
+import { InspectorDispatch } from "../../Dispatch/InspectorDispatch";
 
 const ViewerScene = (props) => {
 
@@ -61,6 +61,7 @@ const ViewerScene = (props) => {
               opacity="0.5"
               uniformScale={state.enlarge}
               color="lightblue"
+              class="clickable"
             />
           )}
           <BaseLayer
@@ -81,7 +82,7 @@ const ViewerScene = (props) => {
           <BaseLayer
             id="assetLayer"
             offset={calculateOffset(-1)}
-            uniformScale="1.1"
+            uniformScale="1"
             color="orange"
           />
           <BaseLayer
