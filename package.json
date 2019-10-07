@@ -11,7 +11,9 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "0.9.5",
-    "semantic-ui-react": "^0.87.3"
+    "semantic-ui-react": "^0.87.3",
+    "shortid": "^2.2.15",
+    "uniqid": "^5.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
