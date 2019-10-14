@@ -4,63 +4,51 @@ import { InspectorDispatch } from "../../Dispatch/InspectorDispatch";
 import "aframe";
 import "aframe-animation-component";
 
-import { Entity } from "aframe-react";
-
 const ViewerScene = props => {
   const { state, dispatch } = useContext(InspectorDispatch);
 
   const color = props.color ? props.color : "lightgrey";
   const offset = props.offset ? props.offset : 0;
-  const uniformScale = props.uniformScale ? props.uniformScale : 1;
-  const opacity = props.opacity ? props.opacity : 1;
-  const level = 0;
+  const opacity = (state.activeLayer === props.name) ? '1' : '0.5';
+  const scale = (state.activeLayer === props.name) ? '2 2 2' : '1 1 1';
 
-  // constructor(props) {
-  //     super(props);
-  //     this.state = {
-  //         color: (props.color) ? props.color : 'lightgrey',
-  //         offset: (props.offset) ? props.offset : 0,
-  //         uniformScale: (props.uniformScale) ? props.uniformScale : 1,
-  //         opacity: (props.opacity) ? props.opacity : 1,
-  //     };
-  // }
+  const entities = state.layers.find(layer => layer.name === state.activeLayer).entities;
 
-//   const focus = () => {
-//     uniformScale = 1.2;
-//   }
-
-  const animation = {
-    to: { x: 0, y: offset, z: 0 },
-    from: { x: 0, y: offset / level + 9.6, z: 0 }
-  };
-
-  //   console.log(this.state.textureId);
+  console.log(entities)
 
   return (
-    <Entity
-      position={{ x: 0, y: offset, z: 0 }}
-      scale={{
-        x: uniformScale,
-        y: uniformScale,
-        z: uniformScale
-      }}
-      animation={{
-        property: "position",
-        from: animation.from,
-        to: animation.to,
-        loop: false,
-        easing: "easeOutElastic",
-        elasticity: 100
-      }}
+    <a-entity
+      position={`0 ${offset} 0`}
+      scale={scale}
     >
-      <Entity
+      {/* <a-animation id="focus"
+        from="1 1 1"
+        to="2 2 2"
+        property="scale"
+        loop="false"
+        // easing="easeOutElastic"
+        elasticity="100"
+        startEvent="focus" />
+      <a-animation id="blur"
+        from="1 1 1"
+        to="2 2 2"
+        property="scale"
+        loop="false"
+        // easing="easeOutElastic"
+        elasticity="100"
+        startEvent="blur" /> */}
+      <a-entity
         className="floor"
-        geometry={{ primitive: "box", height: 0.2, width: 10, depth: 10 }}
-        material={{ color: color, opacity: opacity }}
-        // events={{ click: this.focus.bind(this) }}
-      />
-      <Entity position="4.111 0.262 3.729" sprite={{ src: "hotspot.png" }} />
-    </Entity>
+        geometry="primitive: box; height: 0.2; width: 10; depth: 10"
+        material={`color: ${color}; opacity: ${opacity}`}
+      ></a-entity>
+      {entities.map((entity, index) => {
+        const spriteSrc = 'src: ' + entity.path;
+        <a-entity position={entity.position} scale={entity.scale} sprite={spriteSrc} />
+      })}
+      {/* <a-entity position="4 1 -4" scale="2 2 2" sprite="src: icon-library/Services/f-icon_service_0727_information-model.png" />
+      <a-entity position="4 1 -4" scale="2 2 2" sprite="src: icon-library/Persons/f-icon_person_0089_mailing-boy.png" /> */}
+    </a-entity>
   );
 }
 

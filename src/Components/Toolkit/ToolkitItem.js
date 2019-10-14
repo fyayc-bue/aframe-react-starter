@@ -1,26 +1,31 @@
-import React from 'react';
+// Framework
+import React, { useState, useContext } from 'react';
+import { IconLibraryImages, getItem } from '../EntityLibrary/EntityLibrary';
 
 import './ToolkitItem.css';
-import { Placeholder, Segment } from 'semantic-ui-react';
+import { Card, Image, Button } from 'semantic-ui-react';
 
-export default class ToolkitItem extends React.Component {
+import { InspectorDispatch } from "../Dispatch/InspectorDispatch";
 
-  render() {
-    return (
-      <div className='ToolkitItem'>
-        <Segment raised>
-          <Placeholder>
-            <Placeholder.Header image>
-              <Placeholder.Line />
-              <Placeholder.Line />
-            </Placeholder.Header>
-            <Placeholder.Paragraph>
-              <Placeholder.Line length='medium' />
-              <Placeholder.Line length='short' />
-            </Placeholder.Paragraph>
-          </Placeholder>
-        </Segment>
-      </div>
-    );
+const ToolkitItem = (props) => {
+
+  const [entity, setEntity] = useState(props.entity);
+
+  const { state, dispatch } = useContext(InspectorDispatch);
+
+  const addEntity = () => {
+    dispatch({ type: "addEntity", entity: entity })
   }
+
+  return (
+    <Card href="#" className='ToolkitItem'>
+      <Image size='tiny' src={entity.path} />
+      <Card.Content>
+        <Card.Header>{entity.titel}</Card.Header>
+        <Button size='mini' onClick={addEntity}>Hinzufügen</Button>
+        </Card.Content>
+    </Card>
+  );
 }
+
+export default ToolkitItem;
