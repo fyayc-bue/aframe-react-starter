@@ -42,8 +42,7 @@ const ViewerScene = (props) => {
 
       {/* <a-entity line="path: 10 10 10, 0 0 0, -10 -10 -10" /> */}
 
-      <a-entity
-        primitive="a-light"
+      <a-light
         type="directional"
         color="#fff"
         position="-4.052 10.436 5.583"
